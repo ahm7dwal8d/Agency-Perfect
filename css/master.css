@@ -106,13 +106,23 @@ a {
     background-color: transparent;
     position: relative;
 }
+.header.active {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    background-color: white;
+    transition: var(--main-Transition);
+    -webkit-transition: var(--main-Transition);
+    -moz-transition: var(--main-Transition);
+    -ms-transition: var(--main-Transition);
+    -o-transition: var(--main-Transition);
+}
 .header .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
 }
-.header .container a {
+.header .container > a {
     color: #9fa3a7;
     font-size: 25px;
     text-transform: capitalize;
@@ -129,15 +139,30 @@ a {
     font-size: 40px;
     color: black;
 }
-.header .container i:hover + ul {
+.header .container ul.active {
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 40px;
-    right: 0;
+    left: 10px;
     z-index: 1;
     width: 100%;
     background-color: white;
+    padding: 0;
+    transition: all 0.4s linear;
+    -webkit-transition:;
+    -moz-transition:;
+    -ms-transition:;
+    -o-transition:;
+}
+.header .container ul.active li a {
+    display: block;
+    width: 100%;
+    transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
 }
 @media (max-width: 1200px) {
     .header .container i {
@@ -153,7 +178,13 @@ a {
 @media (max-width: 1200px) {
     .header .container .links {
         display: none;
-    }
+        left: -200px;
+        transition: all 0.4s linear;
+        -webkit-transition: all 0.4s linear;
+        -moz-transition: all 0.4s linear;
+        -ms-transition: all 0.4s linear;
+        -o-transition: all 0.4s linear;
+}
 }
 .header .container .links li a {
     padding: 15px;
@@ -161,6 +192,9 @@ a {
     position: relative;
     margin-left: 5px;
     color: #26292c;
+    font-size: 25px;
+    text-transform: capitalize;
+    height: 55.59px;
 }
 .header .container .links li a::before {
     content: '';
@@ -839,6 +873,51 @@ a {
     margin: 0 10px;
     color: var(--main-Color);
 }
+.Footer-Up {
+    width: fit-content;
+    position: fixed;
+    bottom: 50px;
+    right: 100px;
+    transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    z-index: 1;
+}
+.Footer-Up.active {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    z-index: 1;
+}
+.Footer-Up button {
+    border: none;
+    background-color: var(--main-Header-color);
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    opacity: 0;
+    cursor: pointer;
+}
+.Footer-Up.active button {
+    opacity: 1;
+    transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+}
 /* End Footer  */
 
 /* Start Animation */
@@ -850,11 +929,5 @@ a {
         -ms-transform: translateX(30px);
         -o-transform: translateX(30px);
 }
-}
-@keyframes change-background {
-    80% {
-        background-image: url(../images/map2.jpg);
-        background-size: cover;
-    }
 }
 /* End Animation */
